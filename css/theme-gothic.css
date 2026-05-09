@@ -38,6 +38,16 @@
   --hero-gradient-opacity: 1;      /* 画像なし: 1 / 画像あり: 0.4〜0.6 推奨 */
 }
 
+/* ヒーロー背景画像（PC / SP切替） */
+.hero__bg {
+  background-image: url('../images/artists/hero.jpg');    /* PC用 */
+}
+@media (max-width: 768px) {
+  .hero__bg {
+    background-image: url('../images/artists/hero-sp.jpg'); /* スマホ用 */
+  }
+}
+
 /* Subtle grain texture */
 body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
