@@ -3,7 +3,7 @@
 var DISCOGRAPHY_DATA = {
   "releases": [
     {
-      "id": S7,
+      "id": 7,
       "type": "Digital Single",
       "label": "7th Digital Single",
       "title": "水彩、北浜、午後11時",
@@ -18,7 +18,7 @@ var DISCOGRAPHY_DATA = {
       "comment": ""
     },
     {
-      "id": S6,
+      "id": 6,
       "type": "Digital Single",
       "label": "6th Digital Single",
       "title": "カッコウの鳴く頃に",
@@ -33,7 +33,7 @@ var DISCOGRAPHY_DATA = {
       "comment": ""
     },
     {
-      "id": A2,
+      "id": 2,
       "type": "Compilation Album",
       "label": "2nd Compilation Album",
       "title": "NO VISUAL, NO LIFE 〜SALVATIONIS〜",
