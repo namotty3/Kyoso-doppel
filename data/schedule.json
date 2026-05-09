@@ -1,0 +1,30 @@
+{
+  "schedule": [
+    {
+      "id": 1,
+      "date": "2026-06-20",
+      "venue": "渋谷 Spotify O-EAST",
+      "place": "東京",
+      "title": "主催公演「妄想劇場 Vol.1」",
+      "open": "18:00",
+      "start": "18:30",
+      "advance": 3500,
+      "door": 4000,
+      "ticket_url": "",
+      "info": "w/ BAND NAME"
+    },
+    {
+      "id": 2,
+      "date": "2026-07-05",
+      "venue": "梅田 CLUB QUATTRO",
+      "place": "大阪",
+      "title": "対バンツアー「DOPPEL NIGHT」",
+      "open": "17:30",
+      "start": "18:00",
+      "advance": 3000,
+      "door": 3500,
+      "ticket_url": "",
+      "info": ""
+    }
+  ]
+}

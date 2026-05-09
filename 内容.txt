@@ -1,0 +1,16 @@
+バンドのHPを作成したい
+バンド名「狂想ドッペル」
+
+ページ構成は下記の通り
+・メインページ
+・BIOGRAPHY
+・DISCOGRAPHY
+・SCHEDULE
+・STORE
+外部リンク
+https://dedshop.base.shop/
+
+SNSのリンクを記載
+・X
+https://x.com/kyoso_doppel
+

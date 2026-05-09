@@ -1,0 +1,93 @@
+/* ==========================================
+   THEME A: GOTHIC — Dark Blood Red
+   ゴシック / インダストリアル
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Josefin+Sans:wght@300;400;600&display=swap');
+
+:root {
+  --color-bg:           #080808;
+  --color-bg-2:         #0f0f0f;
+  --color-bg-3:         #180a0a;
+  --color-accent:       #8b0000;
+  --color-accent-light: #cc2222;
+  --color-text:         #d0d0d0;
+  --color-text-muted:   #666;
+  --color-border:       #1c0808;
+  --color-border-light: #2e1010;
+  --color-nav-bg:       rgba(8, 8, 8, 0.96);
+  --color-btn-text:     #d0d0d0;
+
+  --font-heading:        'Cinzel', serif;
+  --font-body:           'Josefin Sans', sans-serif;
+  --font-nav:            'Cinzel', serif;
+  --font-heading-weight: 600;
+
+  --hero-bg:      radial-gradient(ellipse at 50% 60%, #1c0505 0%, #0a0000 50%, #000000 100%);
+  --hero-overlay: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(8,8,8,0.85) 100%);
+
+  --section-title-spacing: 0.45em;
+  --hero-title-spacing:    0.22em;
+  --card-shadow:           rgba(139, 0, 0, 0.25);
+
+  /* ロゴ画像が白/明るい場合はそのまま、暗い場合は下記で明るくする */
+  --logo-filter: none;
+
+  /* アー写あり時 → グラデーションを透過させて写真を見せる
+     images/artists/hero.jpg を配置したら下記を style属性で指定（index.html参照） */
+  --hero-gradient-opacity: 1;      /* 画像なし: 1 / 画像あり: 0.4〜0.6 推奨 */
+}
+
+/* Subtle grain texture */
+body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* Hero glow */
+.hero__title { text-shadow: 0 0 60px rgba(139, 0, 0, 0.4), 0 0 120px rgba(139, 0, 0, 0.15); }
+.hero__bg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(139,0,0,0.015) 3px, rgba(139,0,0,0.015) 4px),
+    var(--hero-bg);
+  opacity: var(--hero-gradient-opacity, 1);
+}
+
+/* Section title: ornamental lines turn red */
+.section__title::before { background: linear-gradient(to right, transparent, #8b0000); }
+.section__title::after  { background: linear-gradient(to left,  transparent, #8b0000); }
+
+/* Nav */
+.site-header.scrolled { border-bottom-color: #2a0808; }
+
+/* Buttons */
+.btn--accent {
+  background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent-light);
+  position: relative; overflow: hidden;
+}
+.btn--accent::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--color-accent); transform: translateX(-100%); transition: transform 0.35s ease;
+}
+.btn--accent:hover::before { transform: translateX(0); }
+.btn--accent:hover { color: #fff; transform: none; }
+.btn--accent span { position: relative; z-index: 1; }
+
+/* Accent date glow */
+.schedule-date__day,
+.next-live__date { text-shadow: 0 0 20px rgba(139, 0, 0, 0.6); }
+
+/* Ornamental footer */
+.site-footer { border-top-color: #2a0808; }
+.site-footer::before {
+  content: '✦  ─────  ✦  ─────  ✦';
+  display: block; text-align: center;
+  color: #3a1010; font-size: 0.72rem; letter-spacing: 0.25em; margin-bottom: 2rem;
+}
+
+/* Release card hover */
+.release-card:hover { box-shadow: 0 0 25px rgba(139,0,0,0.2), 0 10px 35px rgba(0,0,0,0.85); }
+
+/* Circular SNS links → square for gothic */
+.sns-link { border-radius: 0; }

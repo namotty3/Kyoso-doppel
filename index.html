@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="狂想 Official Website">
+  <title>狂想 | Official Website</title>
+  <!--
+    ■ テーマ変更方法
+      下の <link id="theme-stylesheet"> の href を変更してください
+      Theme A ゴシック(赤):   css/theme-gothic.css
+      Theme B サイバー(青):   css/theme-cyber.css
+      Theme C エレガント(金): css/theme-elegant.css
+      ※ 右下の●●●ボタンでもプレビューできます（確認後は削除可）
+  -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/theme-gothic.css" id="theme-stylesheet">
+</head>
+<body>
+
+  <!-- ナビゲーション -->
+  <header class="site-header">
+    <nav class="nav">
+      <div class="nav__logo">
+        <a href="index.html">
+          <img src="images/logo/logo.png" alt="狂想" class="nav__logo-img">
+        </a>
+      </div>
+      <button class="nav__toggle" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__menu">
+        <li><a href="index.html"            class="nav__link">HOME</a></li>
+        <li><a href="biography.html"        class="nav__link">BIOGRAPHY</a></li>
+        <li><a href="discography.html"      class="nav__link">DISCOGRAPHY</a></li>
+        <li><a href="schedule.html"         class="nav__link">SCHEDULE</a></li>
+        <li><a href="https://dedshop.base.shop/" class="nav__link" target="_blank" rel="noopener">STORE ↗</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- モバイルメニュー -->
+  <div id="nav-overlay" class="nav__overlay">
+    <a href="index.html"            class="nav__link">HOME</a>
+    <a href="biography.html"        class="nav__link">BIOGRAPHY</a>
+    <a href="discography.html"      class="nav__link">DISCOGRAPHY</a>
+    <a href="schedule.html"         class="nav__link">SCHEDULE</a>
+    <a href="https://dedshop.base.shop/" class="nav__link" target="_blank" rel="noopener">STORE ↗</a>
+  </div>
+
+  <main>
+
+    <!-- Hero
+         ★ アー写を追加したら style属性の--hero-imageを設定してください
+            例: style="--hero-image: url('images/artists/hero.jpg'); --hero-gradient-opacity: 0.5;"
+         ★ 画像なしの場合はそのままでOK（グラデーションが表示されます）
+    -->
+    <section class="hero">
+      <div class="hero__bg" style="background-image: url('images/artists/hero.jpg'); --hero-gradient-opacity: 0.5;"></div>
+      <div class="hero__content">
+        <h1 class="hero__title">感情音楽</h1>
+        <p class="hero__subtitle">KANJO</p>
+        <div class="hero__sns">
+          <a href="https://x.com/kyoso_doppel" target="_blank" rel="noopener" class="sns-link" aria-label="X (Twitter)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/@kyoso-doppel" target="_blank" rel="noopener" class="sns-link" aria-label="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="https://dedshop.base.shop/" target="_blank" rel="noopener" class="sns-link" aria-label="STORE">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <span>SCROLL</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="section news">
+      <div class="container">
+        <h2 class="section__title">NEWS</h2>
+        <div class="news__list">
+          <!-- ニュース追加: 下のブロックをコピーして追記してください -->
+          <div class="news__item fade-in">
+            <div class="news__date">2026.05.09</div>
+            <div>
+              <span class="news__category">INFO</span>
+              <span class="news__text">オフィシャルサイトをオープンしました。</span>
+            </div>
+          </div>
+          <!-- /ニュース -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="section" style="background:var(--color-bg-2)">
+      <div class="container">
+        <h2 class="section__title">VIDEO</h2>
+        <div id="home-video-content"></div>
+      </div>
+    </section>
+
+    <!-- NEXT LIVE -->
+    <section class="section" style="background:var(--color-bg-2)">
+      <div class="container">
+        <h2 class="section__title">NEXT LIVE</h2>
+        <div id="next-live-content">
+          <div class="next-live__empty">読み込み中...</div>
+        </div>
+        <div style="text-align:center;margin-top:2.5rem">
+          <a href="schedule.html" class="btn btn--outline">VIEW ALL SCHEDULE</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DISCOGRAPHY -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">DISCOGRAPHY</h2>
+        <div id="home-discography-content"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__logo">
+        <a href="index.html">
+          <img src="images/logo/logo.png" alt="狂想" class="footer__logo-img">
+        </a>
+      </div>
+      <div class="footer__sns">
+        <a href="https://x.com/kyoso_doppel" target="_blank" rel="noopener" class="sns-link" aria-label="X (Twitter)">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@kyoso-doppel" target="_blank" rel="noopener" class="sns-link" aria-label="YouTube">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+        <a href="https://dedshop.base.shop/" target="_blank" rel="noopener" class="sns-link" aria-label="STORE">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+        </a>
+      </div>
+      <p class="footer__copy">&copy; 2026 狂想. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- テーマ切替（確認用 / 本番では削除可） -->
+  <div class="theme-switcher" title="テーマプレビュー切替">
+    <div class="theme-switcher__label">THEME</div>
+    <div class="theme-switcher__buttons">
+      <button class="theme-btn theme-btn--gothic active" data-theme="gothic"  title="A: Gothic"></button>
+      <button class="theme-btn theme-btn--cyber"         data-theme="cyber"   title="B: Cyber"></button>
+      <button class="theme-btn theme-btn--elegant"       data-theme="elegant" title="C: Elegant"></button>
+    </div>
+  </div>
+
+  <!-- フライヤー拡大表示 -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="フライヤー拡大">
+    <button class="lightbox__close" id="lightbox-close" aria-label="閉じる">&times;</button>
+    <img class="lightbox__img" id="lightbox-img" src="" alt="フライヤー">
+  </div>
+
+  <script src="data/config.js"></script>
+  <script src="data/schedule.js"></script>
+  <script src="data/discography.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/schedule.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

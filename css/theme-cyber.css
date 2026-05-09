@@ -1,0 +1,115 @@
+/* ==========================================
+   THEME B: CYBER — Electric Neon
+   サイバー / エレクトロニック
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&family=Exo+2:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+
+:root {
+  --color-bg:           #030308;
+  --color-bg-2:         #06060f;
+  --color-bg-3:         #0a0a18;
+  --color-accent:       #00e5ff;
+  --color-accent-2:     #d400ff;
+  --color-accent-light: #6ff0ff;
+  --color-text:         #dce8f5;
+  --color-text-muted:   #3a5a70;
+  --color-border:       #080f1a;
+  --color-border-light: #102030;
+  --color-nav-bg:       rgba(3, 3, 8, 0.97);
+  --color-btn-text:     #030308;
+
+  --font-heading:        'Orbitron', sans-serif;
+  --font-body:           'Exo 2', sans-serif;
+  --font-nav:            'Orbitron', sans-serif;
+  --font-heading-weight: 700;
+
+  --hero-bg:      linear-gradient(145deg, #080018 0%, #00101e 45%, #020010 100%);
+  --hero-overlay: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(3,3,8,0.92) 100%);
+
+  --section-title-spacing: 0.3em;
+  --hero-title-spacing:    0.12em;
+  --card-shadow:           rgba(0, 229, 255, 0.15);
+}
+
+/* Grid background */
+body {
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Hero: grid + scanlines */
+.hero__bg::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background:
+    linear-gradient(rgba(0,229,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.06) 1px, transparent 1px),
+    var(--hero-bg);
+  background-size: 60px 60px, 60px 60px, cover;
+  opacity: var(--hero-gradient-opacity, 1);
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px);
+}
+
+/* Hero title: neon glow */
+.hero__title {
+  color: #fff;
+  text-shadow: 0 0 20px rgba(0,229,255,0.7), 0 0 60px rgba(0,229,255,0.25), 0 0 120px rgba(0,229,255,0.1);
+}
+
+/* Section title: left-aligned, cyan bar */
+.section__title {
+  justify-content: flex-start;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-accent);
+}
+.section__title::before { display: none; }
+.section__title::after { background: linear-gradient(to left, transparent, var(--color-border-light)); }
+
+/* Nav */
+.site-header.scrolled { border-bottom: 1px solid rgba(0,229,255,0.15); }
+.nav__link.active { color: var(--color-accent); }
+.nav__link::after { background-color: var(--color-accent); }
+
+/* Buttons */
+.btn--outline {
+  border-color: var(--color-accent); color: var(--color-accent);
+  position: relative; overflow: hidden;
+}
+.btn--outline::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--color-accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
+}
+.btn--outline:hover::before { transform: scaleX(1); }
+.btn--outline:hover { color: var(--color-btn-text); transform: none; }
+
+.btn--accent {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+  color: #fff;
+}
+.btn--accent:hover { filter: brightness(1.2); transform: none; }
+
+/* Accent date glow */
+.schedule-date__day,
+.next-live__date { text-shadow: 0 0 15px rgba(0,229,255,0.7); }
+
+/* Release card */
+.release-card:hover { box-shadow: 0 0 25px rgba(0,229,255,0.2), 0 10px 35px rgba(0,0,0,0.9); }
+
+/* Filter buttons */
+.filter-btn.active,
+.filter-btn:hover { text-shadow: 0 0 8px rgba(0,229,255,0.5); }
+
+/* Footer */
+.site-footer { border-top: 1px solid rgba(0,229,255,0.1); }
+
+/* SNS */
+.sns-link { border-radius: 0; border-color: rgba(0,229,255,0.25); }
+.sns-link:hover { box-shadow: 0 0 12px rgba(0,229,255,0.4); }
+
+/* News hover bar */
+.news__item:hover { border-bottom-color: var(--color-accent); }
