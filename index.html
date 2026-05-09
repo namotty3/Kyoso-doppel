@@ -56,13 +56,15 @@
 
   <main>
 
-    <!-- Hero
-         ★ アー写を追加したら style属性の--hero-imageを設定してください
-            例: style="--hero-image: url('images/artists/hero.jpg'); --hero-gradient-opacity: 0.5;"
-         ★ 画像なしの場合はそのままでOK（グラデーションが表示されます）
-    -->
     <section class="hero">
-      <div class="hero__bg" style="--hero-gradient-opacity: 0.5;"></div>
+      <div class="hero__bg" style="--hero-gradient-opacity: 0.5;">
+        <!-- ★ ヒーロー動画: images/video/ に hero.mp4 を配置すると自動再生されます -->
+        <video class="hero__video"
+               autoplay muted loop playsinline
+               poster="images/artists/hero.jpg">
+          <source src="images/video/hero.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="hero__content">
         <h1 class="hero__title">感情音楽</h1>
         <p class="hero__subtitle">KANJO</p>

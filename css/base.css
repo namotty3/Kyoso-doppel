@@ -144,16 +144,28 @@ ul { list-style: none; }
   background-repeat: no-repeat;
   z-index: 0;
 }
+/* ヒーロー動画 */
+.hero__video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
 .hero__bg::before {
   content: ''; position: absolute; inset: 0;
   background: var(--hero-bg);  /* テーマのグラデーション（画像なし時に表示） */
   opacity: var(--hero-gradient-opacity, 1);
+  z-index: 1;
 }
 .hero__bg::after {
-  content: ''; position: absolute; inset: 0; background: var(--hero-overlay);
+  content: ''; position: absolute; inset: 0;
+  background: var(--hero-overlay);
+  z-index: 2;
 }
 
-.hero__content { position: relative; z-index: 1; text-align: center; }
+.hero__content { position: relative; z-index: 3; text-align: center; }
+.hero__scroll  { z-index: 3; }
 
 .hero__title {
   font-family: var(--font-heading);
