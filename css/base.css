@@ -356,6 +356,7 @@ ul { list-style: none; }
 .schedule-info__details { font-size: 0.78rem; color: var(--color-text-muted); display: flex; flex-direction: column; gap: 0.2rem; }
 .schedule-info__price { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.25rem; }
 .schedule-info__note  { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 0.4rem; opacity: 0.8; }
+.schedule-info__drink { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 0.15rem; opacity: 0.8; }
 
 .schedule-actions { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-end; }
 .schedule-actions__btns { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
@@ -612,7 +613,8 @@ ul { list-style: none; }
 .biography__text + .biography__text { margin-top: 1.5rem; }
 .members-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; }
 .member-card { text-align: center; }
-.member-card__photo { width: 100%; aspect-ratio: 1; background: var(--color-bg-2); margin-bottom: 1rem; border: 1px solid var(--color-border); }
+.member-card__photo { width: 100%; aspect-ratio: 1; background: var(--color-bg-2); margin-bottom: 1rem; border: 1px solid var(--color-border); overflow: hidden; }
+.member-card__photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .member-card__name { font-family: var(--font-heading); font-size: 1rem; margin-bottom: 0.25rem; }
 .member-card__role { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-accent); }
 

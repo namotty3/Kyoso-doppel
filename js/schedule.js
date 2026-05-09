@@ -66,6 +66,7 @@ function scheduleItemHTML(item, past) {
     </div>
     ${item.info ? `<div class="schedule-info__note">${item.info}</div>` : ''}
     ${price || streaming ? `<div class="schedule-info__price">${[price, streaming].filter(Boolean).join(' / ')}</div>` : ''}
+    ${price ? `<div class="schedule-info__drink">※別途ドリンク代が必要</div>` : ''}
   </div>
   <div class="schedule-actions">
     ${item.flyer ? `<img src="${item.flyer}" alt="flyer" class="schedule-flyer">` : ''}
