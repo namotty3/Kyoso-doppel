@@ -15,7 +15,8 @@ var SCHEDULE_DATA = {
       "ticket_url": "https://tiget.net/events/485486",
       "streaming_url": "",
       "streaming_price": 0,
-      "info": "w/ THE MAYDAY MAYDAY / Gecko Cult Cartel / 「地下ギタァロック楽団」シダレ / Mr.Suicide / ToHSeNBou ※来場者全員へ無料配布CDアリ",
+      "feat": "w/ THE MAYDAY MAYDAY / Gecko Cult Cartel / 「地下ギタァロック楽団」シダレ / Mr.Suicide / ToHSeNBou",
+      "info": "※来場者全員へ無料配布CDアリ",
       "flyer": "images/live/live_20260520.jpg"
     },
     {
@@ -31,7 +32,8 @@ var SCHEDULE_DATA = {
       "ticket_url": "https://t.co/tFajUnqYp9",
       "streaming_url": "https://t.co/WPaeX2RuDj",
       "streaming_price": 0,
-      "info": "w/ I.VILL / オトギリソウ / 終音☆眠 / フタリドッペル",
+      "feat": "w/ I.VILL / オトギリソウ / 終音☆眠 / フタリドッペル",
+      "info": "",
       "flyer": "images/live/live_20260612.jpg"
     },
     {
@@ -47,7 +49,8 @@ var SCHEDULE_DATA = {
       "ticket_url": "https://t.co/i7YwBnG9rF",
       "streaming_url": "https://t.co/VxsIvFHU6F",
       "streaming_price": 2300,
-      "info": "w/ SCYTHEWRACK SYSTEM / Helpless Triangle / NOIQ / I.VILL / ゆいにしお(drum duo set) / 余生 / いびつなすべてをひきつれて。 Vo.トモ Gt.蜊栖 Gt.蛇鬼 Ba.JURA Dr.拓郎",
+      "feat": "w/ SCYTHEWRACK SYSTEM / Helpless Triangle / NOIQ / I.VILL / ゆいにしお(drum duo set) / 余生 / いびつなすべてをひきつれて。 Vo.トモ Gt.蜊栖 Gt.蛇鬼 Ba.JURA Dr.拓郎",
+      "info": "",
       "flyer": "images/live/live_20260423.jpg"
     },
     {
@@ -63,7 +66,8 @@ var SCHEDULE_DATA = {
       "ticket_url": "",
       "streaming_url": "",
       "streaming_price": 0,
-      "info": "w/ トイロイト / Triad / The NeoN 69s / サイケデリアン" ,
+      "feat": "w/ トイロイト / Triad / The NeoN 69s / サイケデリアン",
+      "info": "",
       "flyer": "images/live/live_20260310.jpg"
     },
     {
@@ -79,7 +83,8 @@ var SCHEDULE_DATA = {
       "ticket_url": "https://t.co/6ybzJ5QgDT",
       "streaming_url": "",
       "streaming_price": 0,
-      "info": "w/ I.VILL / バンピール / バンドの底辺×高さ÷2 / みるかみる" ,
+      "feat": "w/ I.VILL / バンピール / バンドの底辺×高さ÷2 / みるかみる",
+      "info": "",
       "flyer": "images/live/live_20260224.jpg"
     },
     {
@@ -95,10 +100,10 @@ var SCHEDULE_DATA = {
       "ticket_url": "https://t.co/R6JgIotKHl",
       "streaming_url": "https://t.co/T4cky3fzZc",
       "streaming_price": 2000,
-      "info": "w/ SCYTHEWRACK SYSTEM / Reign Starving the Orca / MazeWalker / immigrant / NEXGEN / UNVEIL / Dreaming Alone" ,
+      "feat": "w/ SCYTHEWRACK SYSTEM / Reign Starving the Orca / MazeWalker / immigrant / NEXGEN / UNVEIL / Dreaming Alone",
+      "info": "",
       "flyer": "images/live/live_20260120.jpg"
-    }
-    ,
+    },
     {
       "id": 95,
       "date": "2025-12-09",
@@ -112,7 +117,8 @@ var SCHEDULE_DATA = {
       "ticket_url": "https://t.co/Ua5JIPIxXO",
       "streaming_url": "",
       "streaming_price": 0,
-      "info": "w/ I.VILL / 妖狐繚乱 / MØZU / キグルミ / 羅刹 / Intence Rook" ,
+      "feat": "w/ I.VILL / 妖狐繚乱 / MØZU / キグルミ / 羅刹 / Intence Rook",
+      "info": "",
       "flyer": "images/live/live_20251209.jpg"
     }
   ]

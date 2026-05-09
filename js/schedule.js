@@ -63,8 +63,9 @@ function scheduleItemHTML(item, past) {
     <div class="schedule-info__details">
       ${item.open  ? `<span>OPEN ${item.open}</span>`   : ''}
       ${item.start ? `<span>START ${item.start}</span>` : ''}
-      ${item.info  ? `<span>${item.info}</span>`         : ''}
+      ${item.feat  ? `<span>${item.feat}</span>`         : ''}
     </div>
+    ${item.info ? `<div class="schedule-info__note">${item.info}</div>` : ''}
     ${price || streaming ? `<div class="schedule-info__price">${[price, streaming].filter(Boolean).join(' / ')}</div>` : ''}
   </div>
   <div class="schedule-actions">
