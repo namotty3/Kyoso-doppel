@@ -648,6 +648,15 @@ ul { list-style: none; }
     background-position: center center;
   }
   .hero__video {
+    /* right/bottom をリセットして vw/vh で明示的に指定 */
+    right: auto;
+    bottom: auto;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    max-width: none;
+    object-fit: cover;
     object-position: center center;
   }
   /* ヒーロータイトル */
