@@ -46,32 +46,8 @@ function renderLatestReleases() {
     return;
   }
 
-  const cards = releases.map(r => {
-    const d = new Date(r.date + 'T00:00:00');
-    const dateStr = `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
-    const cover = r.image
-      ? `<img src="${r.image}" alt="${r.title}" loading="lazy">`
-      : `<span class="release-card__cover-placeholder">JACKET</span>`;
-    const tracks = (r.tracks ?? []).map(t =>
-      `<div class="release-card__track-item"><span class="release-card__track-num">${t.number}.</span><span>${t.title}</span></div>`
-    ).join('');
-    const links = [
-      r.purchase_url  ? `<a href="${r.purchase_url}"  target="_blank" rel="noopener" class="btn btn--accent"  style="font-size:0.68rem;padding:0.4em 1em;">購入</a>` : '',
-      r.streaming_url ? `<a href="${r.streaming_url}" target="_blank" rel="noopener" class="btn btn--outline" style="font-size:0.68rem;padding:0.4em 1em;">試聴</a>` : '',
-    ].filter(Boolean).join('');
-
-    return `
-<div class="release-card fade-in">
-  <div class="release-card__cover">${cover}</div>
-  <div class="release-card__body">
-    ${r.label ? `<div class="release-card__type"><span class="release-card__label">${r.label}</span></div>` : ''}
-    <div class="release-card__title">${r.title}</div>
-    <div class="release-card__date">${dateStr}${r.catalog ? ' / ' + r.catalog : ''}</div>
-    <div class="release-card__tracks">${tracks}</div>
-    ${links ? `<div style="margin-top:1rem;display:flex;gap:0.5rem;flex-wrap:wrap;">${links}</div>` : ''}
-  </div>
-</div>`;
-  }).join('');
+  /* releaseCardHTML は js/discography.js で定義 */
+  const cards = releases.map(r => releaseCardHTML(r)).join('');
 
   el.innerHTML = `
     <div class="discography-grid">${cards}</div>
@@ -79,10 +55,13 @@ function renderLatestReleases() {
       <a href="discography.html" class="btn btn--outline">VIEW ALL DISCOGRAPHY</a>
     </div>`;
 
-  el.querySelectorAll('.fade-in').forEach(el => {
-    if (typeof observer !== 'undefined') observer.observe(el);
-    else el.classList.add('visible');
+  el.querySelectorAll('.fade-in').forEach(e => {
+    if (typeof observer !== 'undefined') observer.observe(e);
+    else e.classList.add('visible');
   });
+
+  /* モーダルリスナーを付与（attachDiscCardListeners は discography.js で定義） */
+  attachDiscCardListeners(el);
 }
 
 renderLatestVideo();

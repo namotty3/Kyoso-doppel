@@ -1,6 +1,5 @@
 /* ========================================================
    discography.js — data/discography.js のデータをレンダリング
-
    リリース追加方法: data/discography.js の releases 配列に追記するだけ
    ======================================================== */
 
@@ -8,6 +7,13 @@ function getDiscography() {
   return (typeof DISCOGRAPHY_DATA !== 'undefined') ? DISCOGRAPHY_DATA.releases ?? [] : [];
 }
 
+/* id → release のマップ（モーダルで参照） */
+var DISCOGRAPHY_MAP = {};
+function buildDiscMap() {
+  getDiscography().forEach(r => { DISCOGRAPHY_MAP[r.id] = r; });
+}
+
+/* ---- カード HTML ---- */
 function releaseCardHTML(r) {
   const d = new Date(r.date + 'T00:00:00');
   const dateStr = `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
@@ -22,24 +28,93 @@ function releaseCardHTML(r) {
     ? `<img src="${r.image}" alt="${r.title}" loading="lazy">`
     : `<span class="release-card__cover-placeholder">JACKET</span>`;
 
-  const links = [
-    r.purchase_url  ? `<a href="${r.purchase_url}"  target="_blank" rel="noopener" class="btn btn--accent"  style="font-size:0.68rem;padding:0.4em 1em;">購入</a>` : '',
-    r.streaming_url ? `<a href="${r.streaming_url}" target="_blank" rel="noopener" class="btn btn--outline" style="font-size:0.68rem;padding:0.4em 1em;">試聴</a>` : '',
-  ].filter(Boolean).join('');
-
   return `
-<div class="release-card fade-in" data-type="${r.type}">
+<div class="release-card fade-in" data-type="${r.type}" data-release-id="${r.id}">
   <div class="release-card__cover">${cover}</div>
   <div class="release-card__body">
     ${r.label ? `<div class="release-card__type"><span class="release-card__label">${r.label}</span></div>` : ''}
     <div class="release-card__title">${r.title}</div>
     <div class="release-card__date">${dateStr}${r.catalog ? ' / ' + r.catalog : ''}</div>
     <div class="release-card__tracks">${tracks}</div>
-    ${links ? `<div style="margin-top:1rem;display:flex;gap:0.5rem;flex-wrap:wrap;">${links}</div>` : ''}
   </div>
 </div>`;
 }
 
+/* ---- モーダル ---- */
+function injectDiscModal() {
+  if (document.getElementById('disc-modal')) return;
+  const el = document.createElement('div');
+  el.innerHTML = `
+<div class="disc-modal" id="disc-modal" role="dialog" aria-modal="true" aria-label="リリース詳細">
+  <div class="disc-modal__overlay" id="disc-modal-overlay"></div>
+  <div class="disc-modal__box">
+    <button class="disc-modal__close" id="disc-modal-close" aria-label="閉じる">&times;</button>
+    <div class="disc-modal__inner">
+      <div class="disc-modal__cover" id="disc-modal-cover"></div>
+      <div class="disc-modal__info">
+        <div class="disc-modal__label" id="disc-modal-label"></div>
+        <h2 class="disc-modal__title" id="disc-modal-title"></h2>
+        <div class="disc-modal__meta"  id="disc-modal-meta"></div>
+        <div class="disc-modal__tracks" id="disc-modal-tracks"></div>
+        <div class="disc-modal__links"  id="disc-modal-links"></div>
+      </div>
+    </div>
+  </div>
+</div>`;
+  document.body.appendChild(el.firstElementChild);
+
+  document.getElementById('disc-modal-overlay').addEventListener('click', closeDiscModal);
+  document.getElementById('disc-modal-close').addEventListener('click', closeDiscModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDiscModal(); });
+}
+
+function openDiscModal(r) {
+  const modal = document.getElementById('disc-modal');
+  if (!modal) return;
+
+  const d = new Date(r.date + 'T00:00:00');
+  const dateStr = `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+
+  const labelParts = [r.label, r.type].filter(Boolean).join(' / ');
+  document.getElementById('disc-modal-label').textContent = labelParts;
+  document.getElementById('disc-modal-title').textContent = r.title;
+  document.getElementById('disc-modal-meta').textContent  = [dateStr, r.catalog].filter(Boolean).join(' / ');
+
+  document.getElementById('disc-modal-cover').innerHTML = r.image
+    ? `<img src="${r.image}" alt="${r.title}">`
+    : `<div class="disc-modal__cover-ph">JACKET</div>`;
+
+  document.getElementById('disc-modal-tracks').innerHTML = (r.tracks ?? []).map(t =>
+    `<div class="disc-modal__track-item"><span class="disc-modal__track-num">${t.number}.</span><span>${t.title}</span></div>`
+  ).join('');
+
+  document.getElementById('disc-modal-links').innerHTML = [
+    r.purchase_url  ? `<a href="${r.purchase_url}"  target="_blank" rel="noopener" class="btn btn--accent"  style="font-size:0.75rem;padding:0.5em 1.4em;">購入</a>` : '',
+    r.streaming_url ? `<a href="${r.streaming_url}" target="_blank" rel="noopener" class="btn btn--outline" style="font-size:0.75rem;padding:0.5em 1.4em;">試聴 / 配信</a>` : '',
+  ].filter(Boolean).join('');
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDiscModal() {
+  const modal = document.getElementById('disc-modal');
+  if (modal) modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* クリックリスナーをカードに付与 */
+function attachDiscCardListeners(container) {
+  (container || document).querySelectorAll('.release-card[data-release-id]').forEach(card => {
+    card.addEventListener('click', e => {
+      if (e.target.closest('a')) return;
+      const r = DISCOGRAPHY_MAP[parseInt(card.dataset.releaseId, 10)];
+      if (r) openDiscModal(r);
+    });
+  });
+}
+
+/* ---- メインレンダリング ---- */
 function renderDiscography() {
   const grid      = document.getElementById('discography-grid');
   const filterBox = document.getElementById('discography-filter');
@@ -77,6 +152,10 @@ function renderDiscography() {
     if (typeof observer !== 'undefined') observer.observe(el);
     else el.classList.add('visible');
   });
+
+  attachDiscCardListeners(grid);
 }
 
+buildDiscMap();
+injectDiscModal();
 renderDiscography();
