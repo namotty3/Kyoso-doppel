@@ -4,8 +4,8 @@
    ライブ追加方法: data/schedule.js の schedule 配列に追記するだけ
    ======================================================== */
 
-const MONTHS   = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-const WEEKDAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MONTHS   = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+const WEEKDAYS = ['日','月','火','水','木','金','土'];
 
 function getSchedule() {
   return (typeof SCHEDULE_DATA !== 'undefined') ? SCHEDULE_DATA.schedule ?? [] : [];
@@ -14,6 +14,7 @@ function getSchedule() {
 function parseDate(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
   return {
+    year:    d.getFullYear(),
     month:   MONTHS[d.getMonth()],
     day:     d.getDate(),
     weekday: WEEKDAYS[d.getDay()],
@@ -24,6 +25,22 @@ function parseDate(dateStr) {
 
 function isPast(dateStr) {
   return new Date(dateStr + 'T00:00:00') < new Date(new Date().toDateString());
+}
+
+/* 年ごとにグループ化して HTML を生成 */
+function renderByYear(items, past) {
+  if (!items.length) return '';
+  const groups = {};
+  items.forEach(s => {
+    const y = new Date(s.date + 'T00:00:00').getFullYear();
+    if (!groups[y]) groups[y] = [];
+    groups[y].push(s);
+  });
+  const years = Object.keys(groups).map(Number).sort((a, b) => past ? b - a : a - b);
+  return years.map(y =>
+    `<div class="schedule-year">${y}</div>` +
+    groups[y].map(s => scheduleItemHTML(s, past)).join('')
+  ).join('');
 }
 
 function scheduleItemHTML(item, past) {
@@ -74,12 +91,12 @@ function renderSchedulePage() {
   const past     = all.filter(s =>  isPast(s.date)).sort((a,b) => new Date(b.date) - new Date(a.date));
 
   upEl.innerHTML = upcoming.length
-    ? upcoming.map(s => scheduleItemHTML(s, false)).join('')
+    ? renderByYear(upcoming, false)
     : '<div class="schedule-empty">現在予定されているライブはありません</div>';
 
   if (paEl) {
     paEl.innerHTML = past.length
-      ? past.map(s => scheduleItemHTML(s, true)).join('')
+      ? renderByYear(past, true)
       : '<div class="schedule-empty">過去のライブ情報はありません</div>';
   }
 
@@ -151,12 +168,10 @@ renderNextLive();
     lbImg.src = '';
   }
 
-  // フライヤーをクリックで開く（動的生成後も対応）
   document.addEventListener('click', e => {
     if (e.target.classList.contains('schedule-flyer')) open(e.target.src);
   });
 
-  // オーバーレイ・閉じるボタン・Escで閉じる
   lb.addEventListener('click', e => { if (e.target === lb) close(); });
   lbClose.addEventListener('click', close);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });

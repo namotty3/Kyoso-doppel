@@ -328,6 +328,15 @@ ul { list-style: none; }
   padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-border);
 }
 .schedule-list { display: flex; flex-direction: column; }
+.schedule-year {
+  font-family: var(--font-heading);
+  font-size: 0.8rem; letter-spacing: 0.3em;
+  color: var(--color-accent);
+  padding: 1.2rem 0 0.6rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--color-border);
+}
+.schedule-year:first-child { border-top: none; margin-top: 0; }
 .schedule-item {
   display: grid; grid-template-columns: 90px 1fr auto;
   gap: 1.5rem; align-items: start;
