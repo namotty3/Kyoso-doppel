@@ -38,15 +38,7 @@
   --hero-gradient-opacity: 1;      /* 画像なし: 1 / 画像あり: 0.4〜0.6 推奨 */
 }
 
-/* ヒーロー背景画像（PC / SP切替） */
-.hero__bg {
-  background-image: url('../images/artists/hero.jpg');    /* PC用 */
-}
-@media (max-width: 768px) {
-  .hero__bg {
-    background-image: url('../images/artists/hero-sp.jpg'); /* スマホ用 */
-  }
-}
+/* ヒーロー背景: 動画を使用するため background-image は設定しない */
 
 /* Subtle grain texture */
 body {

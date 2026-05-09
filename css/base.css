@@ -146,7 +146,8 @@ ul { list-style: none; }
 }
 /* ヒーロー動画 */
 .hero__video {
-  position: absolute; inset: 0;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: center top;
@@ -588,8 +589,6 @@ ul { list-style: none; }
     background-position: center center;
   }
   .hero__video {
-    width: 100vw;
-    left: 0;
     object-position: center center;
   }
   /* ヒーロータイトル */

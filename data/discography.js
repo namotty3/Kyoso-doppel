@@ -3,7 +3,7 @@
 var DISCOGRAPHY_DATA = {
   "releases": [
     {
-      "id": 7,
+      "id": S7,
       "type": "Digital Single",
       "label": "7th Digital Single",
       "title": "水彩、北浜、午後11時",
@@ -17,7 +17,7 @@ var DISCOGRAPHY_DATA = {
       "streaming_url": "https://linkco.re/gq40B4AE"
     },
     {
-      "id": 6,
+      "id": S6,
       "type": "Digital Single",
       "label": "6th Digital Single",
       "title": "カッコウの鳴く頃に",
@@ -29,6 +29,20 @@ var DISCOGRAPHY_DATA = {
       ],
       "purchase_url": "",
       "streaming_url": "https://linkco.re/aH81d50s"
+    },
+    {
+      "id": A2,
+      "type": "Compilation Album",
+      "label": "2nd Compilation Album",
+      "title": "NO VISUAL, NO LIFE 〜SALVATIONIS〜",
+      "date": "2025-11-29",
+      "catalog": "",
+      "image": "",
+      "tracks": [
+        { "number": 1, "title": "新約 水曜に見る夢" }
+      ],
+      "purchase_url": "https://t.co/FXIB8ZE02d",
+      "streaming_url": ""
     }
   ]
 };
