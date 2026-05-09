@@ -51,9 +51,14 @@ function scheduleItemHTML(item, past) {
   </div>
   <div class="schedule-actions">
     ${item.flyer ? `<img src="${item.flyer}" alt="flyer" class="schedule-flyer">` : ''}
-    ${item.ticket_url && !past
-      ? `<a href="${item.ticket_url}" target="_blank" rel="noopener" class="btn btn--accent">TICKET</a>`
-      : past ? `<span class="ended-label">ENDED</span>` : ''}
+    <div class="schedule-actions__btns">
+      ${item.ticket_url && !past
+        ? `<a href="${item.ticket_url}" target="_blank" rel="noopener" class="btn btn--accent">TICKET</a>`
+        : past ? `<span class="ended-label">ENDED</span>` : ''}
+      ${item.streaming_url
+        ? `<a href="${item.streaming_url}" target="_blank" rel="noopener" class="btn btn--outline">配信</a>`
+        : ''}
+    </div>
   </div>
 </div>`;
 }
@@ -110,7 +115,11 @@ function renderNextLive() {
   <div class="next-live__venue">${n.venue} / ${n.place}</div>
   ${n.open   ? `<div style="margin-top:0.5rem;font-size:0.82rem;color:var(--color-text-muted)">OPEN ${n.open} / START ${n.start}</div>` : ''}
   ${price    ? `<div style="margin-top:0.3rem;font-size:0.82rem;color:var(--color-text-muted)">${price}</div>` : ''}
-  ${n.ticket_url ? `<div style="margin-top:1.2rem"><a href="${n.ticket_url}" target="_blank" rel="noopener" class="btn btn--accent">TICKET</a></div>` : ''}
+  ${(n.ticket_url || n.streaming_url) ? `
+  <div style="margin-top:1.2rem;display:flex;gap:0.75rem;flex-wrap:wrap;">
+    ${n.ticket_url    ? `<a href="${n.ticket_url}"    target="_blank" rel="noopener" class="btn btn--accent">TICKET</a>` : ''}
+    ${n.streaming_url ? `<a href="${n.streaming_url}" target="_blank" rel="noopener" class="btn btn--outline">配信</a>` : ''}
+  </div>` : ''}
 </div>`;
 
   document.querySelectorAll('#next-live-content .fade-in').forEach(el => {

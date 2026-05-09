@@ -13,6 +13,7 @@ var SCHEDULE_DATA = {
       "advance": 2800,
       "door": 3300,
       "ticket_url": "https://tiget.net/events/485486",
+      "streaming_url": "",
       "info": "w/ THE MAYDAY MAYDAY,Gecko Cult Cartel,「地下ギタァロック楽団」シダレ,Mr.Suicide,ToHSeNBou ※来場者全員へ無料配布CDアリ",
       "flyer": "images/live/live_20260520.jpg"
     },
@@ -27,6 +28,7 @@ var SCHEDULE_DATA = {
       "advance": 3000,
       "door": 3500,
       "ticket_url": "https://t.co/tFajUnqYp9",
+      "streaming_url": "https://t.co/WPaeX2RuDj",
       "info": "w/ I.VILL,オトギリソウ,終音☆眠,フタリドッペル",
       "flyer": "images/live/live_20260612.jpg"
     }
