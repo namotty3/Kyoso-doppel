@@ -14,7 +14,8 @@ var DISCOGRAPHY_DATA = {
         { "number": 1, "title": "水彩、北浜、午後11時" }
       ],
       "purchase_url": "",
-      "streaming_url": "https://linkco.re/gq40B4AE"
+      "streaming_url": "https://linkco.re/gq40B4AE",
+      "comment": ""
     },
     {
       "id": S6,
@@ -28,7 +29,8 @@ var DISCOGRAPHY_DATA = {
         { "number": 1, "title": "カッコウの鳴く頃に" }
       ],
       "purchase_url": "",
-      "streaming_url": "https://linkco.re/aH81d50s"
+      "streaming_url": "https://linkco.re/aH81d50s",
+      "comment": ""
     },
     {
       "id": A2,
@@ -42,7 +44,8 @@ var DISCOGRAPHY_DATA = {
         { "number": 1, "title": "新約 水曜に見る夢" }
       ],
       "purchase_url": "https://t.co/FXIB8ZE02d",
-      "streaming_url": ""
+      "streaming_url": "",
+      "comment": "昨年に引き続き参加。狂想ドッペルでご購入の方には特典「３track音源＋限定コースター」をプレゼント"
     }
   ]
 };

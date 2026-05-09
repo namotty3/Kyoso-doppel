@@ -55,8 +55,9 @@ function injectDiscModal() {
         <div class="disc-modal__label" id="disc-modal-label"></div>
         <h2 class="disc-modal__title" id="disc-modal-title"></h2>
         <div class="disc-modal__meta"  id="disc-modal-meta"></div>
-        <div class="disc-modal__tracks" id="disc-modal-tracks"></div>
-        <div class="disc-modal__links"  id="disc-modal-links"></div>
+        <div class="disc-modal__tracks"  id="disc-modal-tracks"></div>
+        <div class="disc-modal__comment" id="disc-modal-comment"></div>
+        <div class="disc-modal__links"   id="disc-modal-links"></div>
       </div>
     </div>
   </div>
@@ -87,6 +88,10 @@ function openDiscModal(r) {
   document.getElementById('disc-modal-tracks').innerHTML = (r.tracks ?? []).map(t =>
     `<div class="disc-modal__track-item"><span class="disc-modal__track-num">${t.number}.</span><span>${t.title}</span></div>`
   ).join('');
+
+  const commentEl = document.getElementById('disc-modal-comment');
+  commentEl.textContent = r.comment ?? '';
+  commentEl.style.display = r.comment ? '' : 'none';
 
   document.getElementById('disc-modal-links').innerHTML = [
     r.purchase_url  ? `<a href="${r.purchase_url}"  target="_blank" rel="noopener" class="btn btn--accent"  style="font-size:0.75rem;padding:0.5em 1.4em;">購入</a>` : '',

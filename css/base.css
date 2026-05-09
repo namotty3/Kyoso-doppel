@@ -490,6 +490,14 @@ ul { list-style: none; }
   font-size: 0.83rem; color: var(--color-text);
 }
 .disc-modal__track-num { color: var(--color-accent); min-width: 1.5em; text-align: right; }
+.disc-modal__comment {
+  font-size: 0.82rem; line-height: 1.8;
+  color: var(--color-text-muted);
+  border-left: 2px solid var(--color-accent);
+  padding-left: 1rem;
+  margin-bottom: 1.2rem;
+  white-space: pre-wrap;
+}
 .disc-modal__links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 @media (max-width: 600px) {
   .disc-modal__box { padding: 1.4rem; }
@@ -542,6 +550,57 @@ ul { list-style: none; }
   display: flex; gap: 0.5rem; padding: 0.2rem 0; border-top: 1px solid var(--color-border);
 }
 .release-card__track-num { color: var(--color-accent); min-width: 1.5rem; }
+
+/* ---- Contact ---- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 800px;
+  margin-inline: auto;
+}
+.contact-card {
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: 2rem 1.8rem;
+  border: 1px solid var(--color-border-light, var(--color-border));
+  background: var(--color-bg-2);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.contact-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 30px var(--card-shadow, rgba(0,0,0,0.4));
+  transform: translateY(-4px);
+  color: var(--color-text);
+}
+.contact-card__icon {
+  flex-shrink: 0;
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-accent);
+}
+.contact-card__icon svg { width: 32px; height: 32px; }
+.contact-card__body { flex: 1; min-width: 0; }
+.contact-card__label {
+  font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--color-accent); margin-bottom: 0.4rem;
+}
+.contact-card__value {
+  font-family: var(--font-heading);
+  font-size: 0.9rem; font-weight: 600;
+  word-break: break-all; margin-bottom: 0.4rem;
+}
+.contact-card__note { font-size: 0.75rem; color: var(--color-text-muted); }
+.contact-card__arrow {
+  flex-shrink: 0;
+  font-size: 1.2rem; color: var(--color-text-muted);
+  transition: color 0.3s, transform 0.3s;
+}
+.contact-card:hover .contact-card__arrow {
+  color: var(--color-accent);
+  transform: translate(3px, -3px);
+}
 
 /* ---- Biography ---- */
 .biography__content { max-width: 800px; margin-inline: auto; }
