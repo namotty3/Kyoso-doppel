@@ -623,7 +623,7 @@ ul { list-style: none; }
   /* Schedule */
   .schedule-item { grid-template-columns: 70px 1fr; }
   .schedule-actions { grid-column: 2; flex-direction: row; align-items: flex-start; }
-  .schedule-flyer { width: 70px; }
+  .schedule-flyer { width: 120px; }
 
   /* Biography photo */
   .biography__photo { max-width: 100%; }
