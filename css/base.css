@@ -470,17 +470,72 @@ ul { list-style: none; }
 
 /* ---- Responsive ---- */
 @media (max-width: 768px) {
+  /* Nav */
   .nav { padding: 0 20px; }
   .nav__menu { display: none; }
   .nav__toggle { display: flex; }
-  .section { padding: 60px 0; }
+
+  /* Hero: portrait画面では cover で全体を覆う */
+  .hero__bg {
+    background-size: cover;
+    background-position: center center;
+  }
+  /* ヒーロータイトル */
+  .hero__title { letter-spacing: 0.1em; }
+  .hero__subtitle { letter-spacing: 0.35em; }
+
+  /* セクション余白 */
+  .section { padding: 50px 0; }
+  .container { width: 92%; }
+
+  /* セクションタイトル */
+  .section__title { letter-spacing: 0.2em; margin-bottom: 2rem; }
+
+  /* NEWS */
+  .news__item { grid-template-columns: 1fr; gap: 0.4rem; }
+
+  /* NEXT LIVE フライヤー: float解除・上部に全幅表示 */
+  .next-live__flyer {
+    float: none;
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto 1.2rem;
+    display: block;
+  }
+  .next-live__card { padding: 1.2rem; }
+  .next-live__date { font-size: 1.2rem; }
+
+  /* DISCOGRAPHY グリッド */
+  .discography-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
+  /* Schedule */
   .schedule-item { grid-template-columns: 70px 1fr; }
   .schedule-actions { grid-column: 2; flex-direction: row; align-items: flex-start; }
-  .news__item { grid-template-columns: 1fr; gap: 0.4rem; }
-  .discography-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+  .schedule-flyer { width: 70px; }
+
+  /* Biography photo */
+  .biography__photo { max-width: 100%; }
+
+  /* Theme switcher: 小さく */
+  .theme-switcher { bottom: 12px; right: 12px; }
 }
+
 @media (max-width: 480px) {
+  /* ヒーロー */
+  .hero__title { font-size: clamp(2.8rem, 13vw, 4rem); }
+  .hero__scroll { display: none; }
+
+  /* DISCOGRAPHY: 1列 */
+  .discography-grid { grid-template-columns: 1fr; max-width: 280px; margin-inline: auto; }
+
+  /* Schedule */
   .schedule-item { grid-template-columns: 1fr; }
   .schedule-date { display: flex; gap: 0.5rem; align-items: baseline; }
   .schedule-date__day { font-size: 1.5rem; }
+
+  /* ボタン */
+  .btn { padding: 0.7em 1.4em; font-size: 0.7rem; }
+
+  /* フッター */
+  .site-footer { padding: 2rem 0; }
 }
