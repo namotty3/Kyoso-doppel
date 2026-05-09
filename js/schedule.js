@@ -28,8 +28,9 @@ function isPast(dateStr) {
 
 function scheduleItemHTML(item, past) {
   const d    = parseDate(item.date);
-  const adv  = item.advance ? `ADV ¥${item.advance.toLocaleString()}`  : '';
-  const door = item.door    ? `DOOR ¥${item.door.toLocaleString()}`    : '';
+  const adv      = item.advance         ? `ADV ¥${item.advance.toLocaleString()}`                : '';
+  const door     = item.door            ? `DOOR ¥${item.door.toLocaleString()}`                   : '';
+  const streaming = item.streaming_price ? `配信 ¥${item.streaming_price.toLocaleString()}` : '';
   const price = [adv, door].filter(Boolean).join(' / ');
 
   return `
@@ -47,7 +48,7 @@ function scheduleItemHTML(item, past) {
       ${item.start ? `<span>START ${item.start}</span>` : ''}
       ${item.info  ? `<span>${item.info}</span>`         : ''}
     </div>
-    ${price ? `<div class="schedule-info__price">${price}</div>` : ''}
+    ${price || streaming ? `<div class="schedule-info__price">${[price, streaming].filter(Boolean).join(' / ')}</div>` : ''}
   </div>
   <div class="schedule-actions">
     ${item.flyer ? `<img src="${item.flyer}" alt="flyer" class="schedule-flyer">` : ''}
@@ -103,8 +104,9 @@ function renderNextLive() {
   const n = upcoming[0];
   const d = parseDate(n.date);
   const price = [
-    n.advance ? `ADV ¥${n.advance.toLocaleString()}`  : '',
-    n.door    ? `DOOR ¥${n.door.toLocaleString()}`    : '',
+    n.advance          ? `ADV ¥${n.advance.toLocaleString()}`                 : '',
+    n.door             ? `DOOR ¥${n.door.toLocaleString()}`                   : '',
+    n.streaming_price  ? `配信 ¥${n.streaming_price.toLocaleString()}` : '',
   ].filter(Boolean).join(' / ');
 
   el.innerHTML = `

@@ -3,7 +3,7 @@
 var SCHEDULE_DATA = {
   "schedule": [
     {
-      "id": 1,
+      "id": 101,
       "date": "2026-05-20",
       "venue": "日本橋STAR BOX",
       "place": "大阪",
@@ -14,11 +14,12 @@ var SCHEDULE_DATA = {
       "door": 3300,
       "ticket_url": "https://tiget.net/events/485486",
       "streaming_url": "",
-      "info": "w/ THE MAYDAY MAYDAY,Gecko Cult Cartel,「地下ギタァロック楽団」シダレ,Mr.Suicide,ToHSeNBou ※来場者全員へ無料配布CDアリ",
+      "streaming_price": 0,
+      "info": "w/ THE MAYDAY MAYDAY / Gecko Cult Cartel / 「地下ギタァロック楽団」シダレ / Mr.Suicide / ToHSeNBou ※来場者全員へ無料配布CDアリ",
       "flyer": "images/live/live_20260520.jpg"
     },
     {
-      "id": 2,
+      "id": 102,
       "date": "2026-06-12",
       "venue": "船場club Mercury",
       "place": "大阪",
@@ -29,8 +30,90 @@ var SCHEDULE_DATA = {
       "door": 3500,
       "ticket_url": "https://t.co/tFajUnqYp9",
       "streaming_url": "https://t.co/WPaeX2RuDj",
-      "info": "w/ I.VILL,オトギリソウ,終音☆眠,フタリドッペル",
+      "streaming_price": 0,
+      "info": "w/ I.VILL / オトギリソウ / 終音☆眠 / フタリドッペル",
       "flyer": "images/live/live_20260612.jpg"
+    },
+    {
+      "id": 99,
+      "date": "2026-04-23",
+      "venue": "梅田BANGBOO",
+      "place": "大阪",
+      "title": "狂想ドッペル × 梅田BANGBOO 共催「梅田エキゾチック混沌」",
+      "open": "17:00",
+      "start": "17:25",
+      "advance": 3000,
+      "door": 3500,
+      "ticket_url": "https://t.co/i7YwBnG9rF",
+      "streaming_url": "https://t.co/VxsIvFHU6F",
+      "streaming_price": 2300,
+      "info": "w/ SCYTHEWRACK SYSTEM / Helpless Triangle / NOIQ / I.VILL / ゆいにしお(drum duo set) / 余生 / いびつなすべてをひきつれて。 Vo.トモ Gt.蜊栖 Gt.蛇鬼 Ba.JURA Dr.拓郎",
+      "flyer": "images/live/live_20260423.jpg"
+    },
+    {
+      "id": 98,
+      "date": "2026-03-10",
+      "venue": "梅田シャングリラ",
+      "place": "大阪",
+      "title": "Free for all",
+      "open": "18:00",
+      "start": "18:30",
+      "advance": 2500,
+      "door": 3000,
+      "ticket_url": "",
+      "streaming_url": "",
+      "streaming_price": 0,
+      "info": "w/ トイロイト / Triad / The NeoN 69s / サイケデリアン" ,
+      "flyer": "images/live/live_20260310.jpg"
+    },
+    {
+      "id": 97,
+      "date": "2026-02-24",
+      "venue": "梅田ODYSSEY",
+      "place": "大阪",
+      "title": "彼岸花vol.3",
+      "open": "17:00",
+      "start": "17:15",
+      "advance": 2000,
+      "door": 2500,
+      "ticket_url": "https://t.co/6ybzJ5QgDT",
+      "streaming_url": "",
+      "streaming_price": 0,
+      "info": "w/ I.VILL / バンピール / バンドの底辺×高さ÷2 / みるかみる" ,
+      "flyer": "images/live/live_20260224.jpg"
+    },
+    {
+      "id": 96,
+      "date": "2026-01-20",
+      "venue": "梅田BANGBOO",
+      "place": "大阪",
+      "title": "The Dawn of a New Era vol.5",
+      "open": "17:00",
+      "start": "17:20",
+      "advance": 2800,
+      "door": 3300,
+      "ticket_url": "https://t.co/R6JgIotKHl",
+      "streaming_url": "https://t.co/T4cky3fzZc",
+      "streaming_price": 2000,
+      "info": "w/ SCYTHEWRACK SYSTEM / Reign Starving the Orca / MazeWalker / immigrant / NEXGEN / UNVEIL / Dreaming Alone" ,
+      "flyer": "images/live/live_20260120.jpg"
+    }
+    ,
+    {
+      "id": 95,
+      "date": "2025-12-09",
+      "venue": "梅田ODYSSEY",
+      "place": "大阪",
+      "title": "彼岸花vol.1",
+      "open": "17:00",
+      "start": "17:15",
+      "advance": 1500,
+      "door": 2000,
+      "ticket_url": "https://t.co/Ua5JIPIxXO",
+      "streaming_url": "",
+      "streaming_price": 0,
+      "info": "w/ I.VILL / 妖狐繚乱 / MØZU / キグルミ / 羅刹 / Intence Rook" ,
+      "flyer": "images/live/live_20251209.jpg"
     }
   ]
 };
