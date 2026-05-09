@@ -353,7 +353,7 @@ ul { list-style: none; }
 
 .schedule-info__title { font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem; }
 .schedule-info__venue { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.5rem; }
-.schedule-info__details { font-size: 0.78rem; color: var(--color-text-muted); display: flex; gap: 1rem; flex-wrap: wrap; }
+.schedule-info__details { font-size: 0.78rem; color: var(--color-text-muted); display: flex; flex-direction: column; gap: 0.2rem; }
 .schedule-info__price { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.25rem; }
 .schedule-info__note  { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 0.4rem; opacity: 0.8; }
 
