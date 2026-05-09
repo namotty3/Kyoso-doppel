@@ -3,9 +3,9 @@
 var DISCOGRAPHY_DATA = {
   "releases": [
     {
-      "id": 1,
+      "id": 7,
       "type": "Digital Single",
-      "label": "7th Single",
+      "label": "7th Digital Single",
       "title": "水彩、北浜、午後11時",
       "date": "2026-04-17",
       "catalog": "KYOSO-007",
@@ -15,6 +15,20 @@ var DISCOGRAPHY_DATA = {
       ],
       "purchase_url": "",
       "streaming_url": "https://linkco.re/gq40B4AE"
+    },
+    {
+      "id": 6,
+      "type": "Digital Single",
+      "label": "6th Digital Single",
+      "title": "カッコウの鳴く頃に",
+      "date": "2026-01-17",
+      "catalog": "KYOSO-006",
+      "image": "",
+      "tracks": [
+        { "number": 1, "title": "カッコウの鳴く頃に" }
+      ],
+      "purchase_url": "",
+      "streaming_url": "https://linkco.re/aH81d50s"
     }
   ]
 };
