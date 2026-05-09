@@ -41,7 +41,7 @@ var DISCOGRAPHY_DATA = {
       "catalog": "",
       "image": "images/releases/A02_suiyou.jpg",
       "tracks": [
-        { "number": 1, "title": "新約 水曜に見る夢" }
+        { "number": 1, "title": "新約、水曜に見る夢" }
       ],
       "purchase_url": "https://t.co/FXIB8ZE02d",
       "streaming_url": "",
