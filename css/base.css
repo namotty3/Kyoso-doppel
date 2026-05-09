@@ -178,14 +178,24 @@ ul { list-style: none; }
 .hero__subtitle {
   font-size: clamp(0.65rem, 2vw, 0.9rem);
   letter-spacing: 0.55em; text-transform: uppercase;
-  color: var(--color-text-muted); margin-bottom: 2rem;
+  color: rgba(255,255,255,0.6); margin-bottom: 2rem;
 }
 .hero__sns { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; }
+
+/* ヒーロー内のSNSアイコン: 背景の明暗によらず白系で確保 */
+.hero__sns .sns-link {
+  color: rgba(255,255,255,0.75);
+  border-color: rgba(255,255,255,0.3);
+}
+.hero__sns .sns-link:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
 
 .hero__scroll {
   position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 8px;
-  color: var(--color-text-muted); font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase;
 }
 .hero__scroll-line {
   width: 1px; height: 40px;
@@ -491,6 +501,11 @@ ul { list-style: none; }
   .hero__bg {
     background-size: cover;
     background-position: center center;
+  }
+  .hero__video {
+    width: 100vw;
+    left: 0;
+    object-position: center center;
   }
   /* ヒーロータイトル */
   .hero__title { letter-spacing: 0.1em; }
