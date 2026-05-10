@@ -77,7 +77,7 @@ function renderLatestReleases() {
 
   const releases = [...DISCOGRAPHY_DATA.releases]
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 3);
+    .slice(0, 4);
 
   if (!releases.length) {
     el.innerHTML = '<p style="color:var(--color-text-muted);text-align:center;padding:2rem">リリース情報は近日公開予定です</p>';
