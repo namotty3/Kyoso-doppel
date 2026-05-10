@@ -335,6 +335,10 @@ ul { list-style: none; }
   padding: 1.2rem 0 0.6rem;
   margin-top: 0.5rem;
   border-top: 1px solid var(--color-border);
+  position: sticky;
+  top: 70px;
+  z-index: 10;
+  background: var(--color-bg);
 }
 .schedule-year:first-child { border-top: none; margin-top: 0; }
 .schedule-item {
@@ -741,7 +745,7 @@ ul { list-style: none; }
 
   /* Schedule */
   .schedule-item { grid-template-columns: 1fr; }
-  .schedule-date { display: flex; gap: 0.5rem; align-items: baseline; }
+  .schedule-date { display: flex; gap: 0.4rem; align-items: flex-end; }
   .schedule-date__day { font-size: 1.5rem; }
 
   /* ボタン */
