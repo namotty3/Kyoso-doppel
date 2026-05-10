@@ -4,26 +4,66 @@ function renderLatestVideo() {
   const el = document.getElementById('home-video-content');
   if (!el) return;
 
-  const id = (typeof SITE_CONFIG !== 'undefined') ? SITE_CONFIG.youtube_id : '';
-  if (!id) {
-    el.innerHTML = '<p style="color:var(--color-text-muted);text-align:center;padding:2rem">data/config.js に youtube_id を設定してください</p>';
+  const cfg = (typeof SITE_CONFIG !== 'undefined') ? SITE_CONFIG : {};
+  const ids = cfg.youtube_ids || (cfg.youtube_id ? [cfg.youtube_id] : []);
+
+  if (!ids.length) {
+    el.innerHTML = '<p style="color:var(--color-text-muted);text-align:center;padding:2rem">data/config.js に youtube_ids を設定してください</p>';
     return;
   }
 
-  const embedUrl = `https://www.youtube.com/embed/${id}?si=DKlhYwMA0T17i5Uy`;
+  const slides = ids.map(id => `
+<div class="video-slider__slide">
+  <div class="video-embed fade-in">
+    <iframe src="https://www.youtube.com/embed/${id}"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</div>`).join('');
+
+  const multi = ids.length > 1;
 
   el.innerHTML = `
-    <div class="video-embed fade-in">
-      <iframe src="${embedUrl}"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-    </div>
-    <div style="text-align:center;margin-top:2rem">
-      <a href="https://www.youtube.com/@kyoso-doppel" target="_blank" rel="noopener" class="btn btn--outline">VIEW ALL VIDEOS</a>
-    </div>`;
+<div class="video-slider">
+  <div class="video-slider__track">${slides}</div>
+  ${multi ? `
+  <button class="video-slider__btn video-slider__btn--prev" aria-label="前へ">&#8249;</button>
+  <button class="video-slider__btn video-slider__btn--next" aria-label="次へ">&#8250;</button>
+  <div class="video-slider__dots">${ids.map((_, i) => `<span class="video-slider__dot${i === 0 ? ' active' : ''}"></span>`).join('')}</div>
+  ` : ''}
+</div>
+<div style="text-align:center;margin-top:2rem">
+  <a href="https://www.youtube.com/@kyoso-doppel" target="_blank" rel="noopener" class="btn btn--outline">VIEW ALL VIDEOS</a>
+</div>`;
+
+  if (multi) {
+    const track = el.querySelector('.video-slider__track');
+    const dots  = el.querySelectorAll('.video-slider__dot');
+    const btnP  = el.querySelector('.video-slider__btn--prev');
+    const btnN  = el.querySelector('.video-slider__btn--next');
+    let cur = 0;
+    const total = ids.length;
+
+    function goTo(idx) {
+      cur = ((idx % total) + total) % total;
+      track.style.transform = `translateX(-${cur * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+    }
+
+    btnP.addEventListener('click', () => goTo(cur - 1));
+    btnN.addEventListener('click', () => goTo(cur + 1));
+
+    let sx = 0;
+    track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - sx;
+      if (dx < -50) goTo(cur + 1);
+      else if (dx > 50) goTo(cur - 1);
+    });
+
+    goTo(0);
+  }
 
   el.querySelectorAll('.fade-in').forEach(e => {
     if (typeof observer !== 'undefined') observer.observe(e);

@@ -107,44 +107,87 @@ function renderSchedulePage() {
   });
 }
 
-function renderNextLive() {
-  const el = document.getElementById('next-live-content');
-  if (!el) return;
-
-  const upcoming = getSchedule()
-    .filter(s => !isPast(s.date))
-    .sort((a,b) => new Date(a.date) - new Date(b.date));
-
-  if (!upcoming.length) {
-    el.innerHTML = '<div class="next-live__empty">ライブ情報は近日公開予定です</div>';
-    return;
-  }
-  const n = upcoming[0];
+function nextLiveCardHTML(n) {
   const d = parseDate(n.date);
   const price = [
-    n.advance          ? `ADV ¥${n.advance.toLocaleString()}`                 : '',
-    n.door             ? `DOOR ¥${n.door.toLocaleString()}`                   : '',
-    n.streaming_price  ? `配信 ¥${n.streaming_price.toLocaleString()}` : '',
+    n.advance         ? `ADV ¥${n.advance.toLocaleString()}`         : '',
+    n.door            ? `DOOR ¥${n.door.toLocaleString()}`            : '',
+    n.streaming_price ? `配信 ¥${n.streaming_price.toLocaleString()}` : '',
   ].filter(Boolean).join(' / ');
-
-  el.innerHTML = `
+  return `
 <div class="next-live__card fade-in">
   ${n.flyer ? `<img src="${n.flyer}" alt="flyer" class="schedule-flyer next-live__flyer">` : ''}
   <div class="next-live__date">${d.full} (${d.weekday})</div>
-  ${n.title  ? `<div class="next-live__title">${n.title}</div>` : ''}
+  ${n.title ? `<div class="next-live__title">${n.title}</div>` : ''}
   <div class="next-live__venue">${n.venue} / ${n.place}</div>
-  ${n.open   ? `<div style="margin-top:0.5rem;font-size:0.82rem;color:var(--color-text-muted)">OPEN ${n.open} / START ${n.start}</div>` : ''}
-  ${price    ? `<div style="margin-top:0.3rem;font-size:0.82rem;color:var(--color-text-muted)">${price}</div>` : ''}
+  ${n.open  ? `<div style="margin-top:0.5rem;font-size:0.82rem;color:var(--color-text-muted)">OPEN ${n.open} / START ${n.start}</div>` : ''}
+  ${price   ? `<div style="margin-top:0.3rem;font-size:0.82rem;color:var(--color-text-muted)">${price}</div>` : ''}
   ${(n.ticket_url || n.streaming_url) ? `
   <div style="margin-top:1.2rem;display:flex;gap:0.75rem;flex-wrap:wrap;">
     ${n.ticket_url    ? `<a href="${n.ticket_url}"    target="_blank" rel="noopener" class="btn btn--accent">TICKET</a>` : ''}
     ${n.streaming_url ? `<a href="${n.streaming_url}" target="_blank" rel="noopener" class="btn btn--outline">配信</a>` : ''}
   </div>` : ''}
 </div>`;
+}
 
-  document.querySelectorAll('#next-live-content .fade-in').forEach(el => {
-    if (typeof observer !== 'undefined') observer.observe(el);
-    else el.classList.add('visible');
+function renderNextLive() {
+  const el = document.getElementById('next-live-content');
+  if (!el) return;
+
+  const upcoming = getSchedule()
+    .filter(s => !isPast(s.date))
+    .sort((a, b) => new Date(a.date) - new Date(b.date))
+    .slice(0, 3);
+
+  if (!upcoming.length) {
+    el.innerHTML = '<div class="next-live__empty">ライブ情報は近日公開予定です</div>';
+    return;
+  }
+
+  const cards = upcoming.map(n => nextLiveCardHTML(n)).join('');
+  const multi = upcoming.length > 1;
+
+  el.innerHTML = `
+<div class="nl-slider">
+  <div class="nl-slider__track">${cards}</div>
+  ${multi ? `
+  <button class="nl-slider__btn nl-slider__btn--prev" aria-label="前へ">&#8249;</button>
+  <button class="nl-slider__btn nl-slider__btn--next" aria-label="次へ">&#8250;</button>
+  <div class="nl-slider__dots">${upcoming.map((_, i) => `<span class="nl-slider__dot${i === 0 ? ' active' : ''}"></span>`).join('')}</div>
+  ` : ''}
+</div>`;
+
+  if (multi) {
+    const track = el.querySelector('.nl-slider__track');
+    const dots  = el.querySelectorAll('.nl-slider__dot');
+    const btnP  = el.querySelector('.nl-slider__btn--prev');
+    const btnN  = el.querySelector('.nl-slider__btn--next');
+    let cur = 0;
+    const total = upcoming.length;
+
+    function goTo(idx) {
+      cur = ((idx % total) + total) % total;
+      track.style.transform = `translateX(-${cur * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+    }
+
+    btnP.addEventListener('click', () => goTo(cur - 1));
+    btnN.addEventListener('click', () => goTo(cur + 1));
+
+    let sx = 0;
+    track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - sx;
+      if (dx < -50) goTo(cur + 1);
+      else if (dx > 50) goTo(cur - 1);
+    });
+
+    goTo(0);
+  }
+
+  el.querySelectorAll('.fade-in').forEach(e => {
+    if (typeof observer !== 'undefined') observer.observe(e);
+    else e.classList.add('visible');
   });
 }
 
