@@ -110,7 +110,7 @@ var DISCOGRAPHY_DATA = {
     {
       "id": 9,
       "type": "Single",
-      "label": "2nd Single",
+      "label": "3rd Single",
       "title": "フィクション≒ノンフィクション",
       "date": "2023-12-01",
       "catalog": "",
@@ -127,7 +127,7 @@ var DISCOGRAPHY_DATA = {
     {
       "id": 8,
       "type": "Single",
-      "label": "1st Single",
+      "label": "2nd Single",
       "title": "長堀橋エレクトリックラプソディ",
       "date": "2023-09-30",
       "catalog": "",
@@ -162,7 +162,7 @@ var DISCOGRAPHY_DATA = {
       "comment": "Track1,3,5はディスク版のみ収録"
     },
     {
-      "id": 8,
+      "id": 6,
       "type": "Digital Single",
       "label": "1st Digital Single",
       "title": "Re:創狂",
@@ -174,6 +174,22 @@ var DISCOGRAPHY_DATA = {
       ],
       "purchase_url": "",
       "streaming_url": "https://linkco.re/qhUG9YAd?lang=ja",
+      "comment": ""
+    },
+    {
+      "id": 5,
+      "type": "Single",
+      "label": "1st Single",
+      "title": "僕は其の花を摘んで握り潰した／トゥワイライトOSAKA混沌都市",
+      "date": "2022-01-30",
+      "catalog": "",
+      "image": "images/releases/S00_hana.jpg",
+      "tracks": [
+        { "number": 1, "title": "僕は其の花を摘んで握り潰した" },
+        { "number": 2, "title": "トゥワイライトOSAKA混沌都市" }
+      ],
+      "purchase_url": "https://dedshop.base.shop/items/56782483",
+      "streaming_url": "",
       "comment": ""
     }
   ]
