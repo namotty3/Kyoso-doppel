@@ -180,8 +180,8 @@ var DISCOGRAPHY_DATA = {
       "id": 5,
       "type": "Single",
       "label": "1st Single",
-      "title": "僕は其の花を摘んで握り潰した／トゥワイライトOSAKA混沌都市",
-      "date": "2022-01-30",
+      "title": "僕は其の花を摘んで握り潰した/トゥワイライトOSAKA混沌都市",
+      "date": "2022-01-31",
       "catalog": "",
       "image": "images/releases/S00_hana.jpg",
       "tracks": [
