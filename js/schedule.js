@@ -167,7 +167,8 @@ function renderNextLive() {
 
     function goTo(idx) {
       cur = ((idx % total) + total) % total;
-      track.style.transform = `translateX(-${cur * 100}%)`;
+      const slideW = track.parentElement.offsetWidth;
+      track.style.transform = `translateX(-${cur * slideW}px)`;
       dots.forEach((d, i) => d.classList.toggle('active', i === cur));
     }
 
