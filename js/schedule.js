@@ -116,7 +116,7 @@ function nextLiveCardHTML(n) {
   ].filter(Boolean).join(' / ');
   return `
 <div class="next-live__card fade-in">
-  ${n.flyer ? `<img src="${n.flyer}" alt="flyer" class="schedule-flyer next-live__flyer">` : ''}
+  ${n.flyer ? `<div class="next-live__flyer-wrap"><img src="${n.flyer}" alt="flyer" class="schedule-flyer" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;"></div>` : ''}
   <div class="next-live__date">${d.full} (${d.weekday})</div>
   ${n.title ? `<div class="next-live__title">${n.title}</div>` : ''}
   <div class="next-live__venue">${n.venue} / ${n.place}</div>
@@ -158,32 +158,40 @@ function renderNextLive() {
 </div>`;
 
   if (multi) {
-    const track = el.querySelector('.nl-slider__track');
-    const dots  = el.querySelectorAll('.nl-slider__dot');
-    const btnP  = el.querySelector('.nl-slider__btn--prev');
-    const btnN  = el.querySelector('.nl-slider__btn--next');
+    const track  = el.querySelector('.nl-slider__track');
+    const slider = el.querySelector('.nl-slider');
+    const dots   = el.querySelectorAll('.nl-slider__dot');
+    const btnP   = el.querySelector('.nl-slider__btn--prev');
+    const btnN   = el.querySelector('.nl-slider__btn--next');
     let cur = 0;
     const total = upcoming.length;
 
-    function goTo(idx) {
-      cur = ((idx % total) + total) % total;
-      const slideW = track.parentElement.offsetWidth;
-      track.style.transform = `translateX(-${cur * slideW}px)`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === cur));
-    }
+    requestAnimationFrame(() => {
+      const slideW = slider.offsetWidth;
+      track.querySelectorAll('.next-live__card').forEach(c => {
+        c.style.minWidth = slideW + 'px';
+        c.style.width    = slideW + 'px';
+      });
 
-    btnP.addEventListener('click', () => goTo(cur - 1));
-    btnN.addEventListener('click', () => goTo(cur + 1));
+      function goTo(idx) {
+        cur = ((idx % total) + total) % total;
+        track.style.transform = `translateX(-${cur * slideW}px)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+      }
 
-    let sx = 0;
-    track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend',   e => {
-      const dx = e.changedTouches[0].clientX - sx;
-      if (dx < -50) goTo(cur + 1);
-      else if (dx > 50) goTo(cur - 1);
+      btnP.addEventListener('click', () => goTo(cur - 1));
+      btnN.addEventListener('click', () => goTo(cur + 1));
+
+      let sx = 0;
+      track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend',   e => {
+        const dx = e.changedTouches[0].clientX - sx;
+        if (dx < -50) goTo(cur + 1);
+        else if (dx > 50) goTo(cur - 1);
+      });
+
+      goTo(0);
     });
-
-    goTo(0);
   }
 
   el.querySelectorAll('.fade-in').forEach(e => {
