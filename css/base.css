@@ -340,6 +340,25 @@ ul { list-style: none; }
 .nl-slider__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-border); transition: background 0.3s; cursor: pointer; }
 .nl-slider__dot.active { background: var(--color-accent); }
 
+/* ---- Disc Home Slider (mobile only) ---- */
+.dhs { display: none; position: relative; overflow: hidden; }
+.dhs__track { display: flex; transition: transform 0.4s ease; }
+.dhs__slide { min-width: 100%; flex-shrink: 0; box-sizing: border-box; padding: 0 0.5rem; }
+.dhs__btn {
+  position: absolute; top: 40%; transform: translateY(-50%);
+  background: var(--color-bg); border: 1px solid var(--color-border);
+  color: var(--color-text); font-size: 1.8rem; line-height: 1;
+  width: 36px; height: 36px; border-radius: 50%;
+  cursor: pointer; z-index: 2; display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+.dhs__btn:hover { border-color: var(--color-accent); }
+.dhs__btn--prev { left: -18px; }
+.dhs__btn--next { right: -18px; }
+.dhs__dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
+.dhs__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-border); transition: background 0.3s; cursor: pointer; }
+.dhs__dot.active { background: var(--color-accent); }
+
 /* ---- Schedule ---- */
 .schedule-section { margin-bottom: 4rem; }
 .schedule-section__title {
@@ -783,18 +802,9 @@ ul { list-style: none; }
   /* DISCOGRAPHY: 1列（個別ページ） */
   .discography-grid { grid-template-columns: 1fr; max-width: 280px; margin-inline: auto; }
 
-  /* HOME DISCOGRAPHY: 横スクロール */
-  #home-discography-content .discography-grid {
-    display: flex; max-width: none; margin-inline: 0;
-    overflow-x: auto; scroll-snap-type: x mandatory;
-    gap: 1rem; padding-bottom: 0.75rem;
-    scrollbar-width: none;
-  }
-  #home-discography-content .discography-grid::-webkit-scrollbar { display: none; }
-  #home-discography-content .discography-grid .release-card {
-    width: 78vw; min-width: 78vw; max-width: 78vw;
-    flex-shrink: 0; scroll-snap-align: start;
-  }
+  /* HOME DISCOGRAPHY: JS スライダー（mobile） */
+  #home-discography-content .dhs { display: block; margin: 0 24px; }
+  #home-discography-content .dhs__grid { display: none; }
 
   /* Schedule */
   .schedule-item { grid-template-columns: 1fr; }

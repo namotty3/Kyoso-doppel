@@ -84,21 +84,52 @@ function renderLatestReleases() {
     return;
   }
 
-  /* releaseCardHTML は js/discography.js で定義 */
-  const cards = releases.map(r => releaseCardHTML(r)).join('');
+  const slides = releases.map(r => `<div class="dhs__slide">${releaseCardHTML(r)}</div>`).join('');
+  const gridCards = releases.map(r => releaseCardHTML(r)).join('');
 
   el.innerHTML = `
-    <div class="discography-grid">${cards}</div>
+    <div class="dhs">
+      <div class="dhs__track">${slides}</div>
+      <button class="dhs__btn dhs__btn--prev" aria-label="前へ">&#8249;</button>
+      <button class="dhs__btn dhs__btn--next" aria-label="次へ">&#8250;</button>
+      <div class="dhs__dots">${releases.map((_, i) => `<span class="dhs__dot${i === 0 ? ' active' : ''}"></span>`).join('')}</div>
+    </div>
+    <div class="discography-grid dhs__grid">${gridCards}</div>
     <div style="text-align:center;margin-top:2.5rem">
       <a href="discography.html" class="btn btn--outline">VIEW ALL DISCOGRAPHY</a>
     </div>`;
+
+  const track = el.querySelector('.dhs__track');
+  const dots  = el.querySelectorAll('.dhs__dot');
+  const btnP  = el.querySelector('.dhs__btn--prev');
+  const btnN  = el.querySelector('.dhs__btn--next');
+  let cur = 0;
+  const total = releases.length;
+
+  function goTo(idx) {
+    cur = ((idx % total) + total) % total;
+    track.style.transform = `translateX(-${cur * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+
+  btnP.addEventListener('click', () => goTo(cur - 1));
+  btnN.addEventListener('click', () => goTo(cur + 1));
+
+  let sx = 0;
+  track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if (dx < -50) goTo(cur + 1);
+    else if (dx > 50) goTo(cur - 1);
+  });
+
+  goTo(0);
 
   el.querySelectorAll('.fade-in').forEach(e => {
     if (typeof observer !== 'undefined') observer.observe(e);
     else e.classList.add('visible');
   });
 
-  /* モーダルリスナーを付与（attachDiscCardListeners は discography.js で定義） */
   attachDiscCardListeners(el);
 }
 
