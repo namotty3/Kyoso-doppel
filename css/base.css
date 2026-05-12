@@ -417,6 +417,22 @@ ul { list-style: none; }
   float: right; margin: 0 0 1rem 1.5rem;
 }
 
+/* ---- TuneCore link & Spotify embed ---- */
+.tunecore-link {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.6em 1.2em;
+  border: 1px solid var(--color-border);
+  border-radius: 2rem;
+  font-size: 0.82rem; letter-spacing: 0.05em;
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: border-color 0.2s, color 0.2s;
+  margin-bottom: 1.5rem;
+}
+.tunecore-link:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.spotify-embed { border-radius: 12px; overflow: hidden; }
+.spotify-embed iframe { display: block; border-radius: 12px; }
+
 /* ---- YouTube embed ---- */
 .video-embed {
   position: relative;
