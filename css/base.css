@@ -787,6 +787,17 @@ ul { list-style: none; }
   .schedule-actions { grid-column: 2; flex-direction: row; align-items: flex-start; }
   .schedule-flyer { width: 120px; }
 
+  /* NL slider フライヤー: 中央揃えを明示（.schedule-flyer との競合を高詳細度で解決） */
+  .nl-slider .next-live__flyer {
+    float: none;
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.2rem;
+  }
+
   /* Biography photo */
   .biography__photo { max-width: 100%; }
 
