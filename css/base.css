@@ -811,7 +811,12 @@ ul { list-style: none; }
     margin: 0;
   }
   #home-discography-content .dhs__grid { display: none; }
-  #home-discography-content .dhs .dhs__slide { padding: 0; }
+  #home-discography-content .dhs .dhs__slide {
+    width: 100vw;
+    min-width: 0;
+    flex-shrink: 0;
+    padding: 0;
+  }
   #home-discography-content .dhs .dhs__btn--prev { left: 8px; }
   #home-discography-content .dhs .dhs__btn--next { right: 8px; }
 
