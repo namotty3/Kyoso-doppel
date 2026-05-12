@@ -803,8 +803,18 @@ ul { list-style: none; }
   .discography-grid { grid-template-columns: 1fr; max-width: 280px; margin-inline: auto; }
 
   /* HOME DISCOGRAPHY: JS スライダー（mobile） */
-  #home-discography-content .dhs { display: block; margin: 0 24px; }
+  #home-discography-content .dhs {
+    display: block;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
   #home-discography-content .dhs__grid { display: none; }
+  #home-discography-content .dhs .dhs__slide { padding: 0; }
+  #home-discography-content .dhs .dhs__btn--prev { left: 8px; }
+  #home-discography-content .dhs .dhs__btn--next { right: 8px; }
 
   /* Schedule */
   .schedule-item { grid-template-columns: 1fr; }
