@@ -783,19 +783,17 @@ ul { list-style: none; }
   /* DISCOGRAPHY: 1列（個別ページ） */
   .discography-grid { grid-template-columns: 1fr; max-width: 280px; margin-inline: auto; }
 
-  /* HOME DISCOGRAPHY: 横スクロール（フル幅） */
+  /* HOME DISCOGRAPHY: 横スクロール */
   #home-discography-content .discography-grid {
-    display: flex; max-width: none;
-    margin-inline: -5vw;
-    padding-inline: 5vw;
-    width: 100vw; box-sizing: border-box;
+    display: flex; max-width: none; margin-inline: 0;
     overflow-x: auto; scroll-snap-type: x mandatory;
     gap: 1rem; padding-bottom: 0.75rem;
     scrollbar-width: none;
   }
   #home-discography-content .discography-grid::-webkit-scrollbar { display: none; }
   #home-discography-content .discography-grid .release-card {
-    min-width: 82vw; flex-shrink: 0; scroll-snap-align: start;
+    width: 78vw; min-width: 78vw; max-width: 78vw;
+    flex-shrink: 0; scroll-snap-align: start;
   }
 
   /* Schedule */
