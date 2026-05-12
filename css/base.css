@@ -802,11 +802,13 @@ ul { list-style: none; }
   /* DISCOGRAPHY: 1列（個別ページ） */
   .discography-grid { grid-template-columns: 1fr; max-width: 280px; margin-inline: auto; }
 
-  /* HOME DISCOGRAPHY: JS スライダー（mobile） */
+  /* HOME DISCOGRAPHY: セクションのコンテナを100%幅にしてスライダーを画面幅いっぱいに */
+  #home-disc-section .container { width: 100%; padding: 0; }
+  #home-disc-section .section__title { margin-left: 4vw; margin-right: 4vw; }
   #home-discography-content .dhs {
     display: block;
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
+    width: 100%;
+    margin: 0;
   }
   #home-discography-content .dhs__grid { display: none; }
   #home-discography-content .dhs .dhs__slide { padding: 0; }
