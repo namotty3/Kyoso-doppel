@@ -806,10 +806,7 @@ ul { list-style: none; }
   #home-discography-content .dhs {
     display: block;
     width: 100vw;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
+    margin-left: calc(50% - 50vw);
   }
   #home-discography-content .dhs__grid { display: none; }
   #home-discography-content .dhs .dhs__slide { padding: 0; }
