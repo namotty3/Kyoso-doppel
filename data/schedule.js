@@ -3,6 +3,23 @@
 var SCHEDULE_DATA = {
   "schedule": [
     {
+      "id": 104,
+      "date": "2026-07-25",
+      "venue": "北堀江club Vijon",
+      "place": "大阪",
+      "title": "WS & Error Presents「RISE OF NOISE」",
+      "open": "16:00",
+      "start": "16:30",
+      "advance": 3500,
+      "door": 4000,
+      "ticket_url": "https://t.co/0d2AC0x2ag",
+      "streaming_url": "",
+      "streaming_price": 0,
+      "feat": "w/ Error / SINRI / ODMR / UNLIMITEDxx性 / スクう空气 / 狂想ドッペル / YAKINIKUYA NO HORMONE",
+      "info": "",
+      "flyer": "images/live/live_20260725.jpg"
+    },
+    {
       "id": 103,
       "date": "2026-07-06",
       "venue": "梅田BANGBOO",
@@ -38,7 +55,7 @@ var SCHEDULE_DATA = {
     },
     {
       "id": 101,
-      "date": "2026-05-20",
+      "date": "2026-05-24",
       "venue": "日本橋STAR BOX",
       "place": "大阪",
       "title": "五月病GIG vol.1",
@@ -51,7 +68,7 @@ var SCHEDULE_DATA = {
       "streaming_price": 0,
       "feat": "w/ THE MAYDAY MAYDAY / Gecko Cult Cartel / 「地下ギタァロック楽団」シダレ / Mr.Suicide / ToHSeNBou",
       "info": "※来場者全員へ無料配布CDアリ",
-      "flyer": "images/live/live_20260520.jpg"
+      "flyer": "images/live/live_20260524.jpg"
     },
     {
       "id": 99,
