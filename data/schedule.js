@@ -15,7 +15,7 @@ var SCHEDULE_DATA = {
       "ticket_url": "https://t.co/0d2AC0x2ag",
       "streaming_url": "",
       "streaming_price": 0,
-      "feat": "w/ Error / SINRI / ODMR / UNLIMITEDxx性 / スクう空气 / 狂想ドッペル / YAKINIKUYA NO HORMONE",
+      "feat": "w/ Error / SINRI / ODMR / UNLIMITEDxx性 / スクう空气 / YAKINIKUYA NO HORMONE",
       "info": "",
       "flyer": "images/live/live_20260725.jpg"
     },
