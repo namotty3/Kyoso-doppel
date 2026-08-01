@@ -3,6 +3,23 @@
 var SCHEDULE_DATA = {
   "schedule": [
     {
+      "id": 105,
+      "date": "2026-08-26",
+      "venue": "梅田シャングリラ",
+      "place": "大阪",
+      "title": "Gravity",
+      "open": "18:30",
+      "start": "19:00",
+      "advance": 2500,
+      "door": 3000,
+      "ticket_url": "",
+      "streaming_url": "",
+      "streaming_price": 0,
+      "feat": "w/ VIOLET / DISTRESS / beckel ",
+      "info": "",
+      "flyer": ""
+    },
+    {
       "id": 104,
       "date": "2026-07-25",
       "venue": "北堀江club Vijon",
