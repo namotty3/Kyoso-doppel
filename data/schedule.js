@@ -3,6 +3,23 @@
 var SCHEDULE_DATA = {
   "schedule": [
     {
+      "id": 106,
+      "date": "2026-10-26",
+      "venue": "梅田BANGBOO",
+      "place": "大阪",
+      "title": "【堂山わんこ大戦争】vol.2 -イヌガヨ vs BANGBOO-",
+      "open": "xx:xx",
+      "start": "xx:xx",
+      "advance": 3000,
+      "door": 3500,
+      "ticket_url": "https://tiget.net/events/513918",
+      "streaming_url": "https://premier.twitcasting.tv/bangbooinfo/shopcart/449077",
+      "streaming_price": 2500,
+      "feat": "w/ イヌガヨ / JUNIOR BREATH / Helpless Triangle / THE BAMBOO SPIRITS CLUB / メルシー / and more ",
+      "info": "",
+      "flyer": "images/live/live_20261026.jpg"
+    },
+    {
       "id": 105,
       "date": "2026-08-26",
       "venue": "梅田シャングリラ",
