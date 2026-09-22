@@ -3,6 +3,23 @@
 var SCHEDULE_DATA = {
   "schedule": [
     {
+      "id": 107,
+      "date": "2026-11-21",
+      "venue": "扇町para-dice",
+      "place": "大阪",
+      "title": "gaizao主催 ミッドナイトサイクリングリサイタルvol.12「オオサカ・びゅーちふる」",
+      "open": "17:30",
+      "start": "18:00",
+      "advance": 3500,
+      "door": 3800,
+      "ticket_url": "https://t.co/cw2iyx6cAF",
+      "streaming_url": "",
+      "streaming_price": 0,
+      "feat": "w/ gaizao / ファーストディナー / THE MAYDAY MAYDAY / zoyo ",
+      "info": "",
+      "flyer": "images/live/live_20261121.jpg"
+    },
+    {
       "id": 106,
       "date": "2026-10-26",
       "venue": "梅田BANGBOO",
