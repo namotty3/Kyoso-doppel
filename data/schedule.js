@@ -3,6 +3,40 @@
 var SCHEDULE_DATA = {
   "schedule": [
     {
+      "id": 109,
+      "date": "2027-01-29",
+      "venue": "船場club Mercury",
+      "place": "大阪",
+      "title": "狂想ドッペル1st ワンマン「無償の愛と哀」",
+      "open": "18:30",
+      "start": "19:30",
+      "advance": 2000,
+      "door": 2000,
+      "ticket_url": "",
+      "streaming_url": "https://t.co/kKDNnn4R9R",
+      "streaming_price": 0,
+      "feat": "",
+      "info": "狂想ドッペル初のワンマン。アフターパーティーあり。",
+      "flyer": "images/live/live_20270129.jpeg"
+    },
+    {
+      "id": 108,
+      "date": "2026-12-17",
+      "venue": "梅田某所",
+      "place": "大阪",
+      "title": "???",
+      "open": "xx:xx",
+      "start": "xx:xx",
+      "advance": 0,
+      "door": 0,
+      "ticket_url": "",
+      "streaming_url": "",
+      "streaming_price": 0,
+      "feat": "",
+      "info": "",
+      "flyer": ""
+    },
+    {
       "id": 107,
       "date": "2026-11-21",
       "venue": "扇町para-dice",
@@ -16,7 +50,7 @@ var SCHEDULE_DATA = {
       "streaming_url": "",
       "streaming_price": 0,
       "feat": "w/ gaizao / ファーストディナー / THE MAYDAY MAYDAY / zoyo ",
-      "info": "",
+      "info": "狂想ドッペルは20:00-20:30 トリ前",
       "flyer": "images/live/live_20261121.jpg"
     },
     {
